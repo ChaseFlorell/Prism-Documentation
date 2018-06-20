@@ -119,7 +119,7 @@ One possible scenario is one which you want your Master to use a NavigationPage 
 
 ## Extending the markup extensions
 
-If you wish to add additional functionality to your xaml navigation, Prism has made it easy for you to extend both the `NavigateTo` and `GoBack` extensions. Some reasons you might want to do this would be to add additional options or simply add debug logging.
+Sometimes our navigation fails. There could be a number of reasons for this. It could be that we implemented `IConfirmNavigation` and `CanNavigate` returned false, cancelling our navigation. It could be that we forgot to register a View for Navigation, etc. Regardless of what our motive for handling the Navigation event is, Prism makes it very easy to extend the built in XAML Extensions with your own custom XAML Extensions that handle whatever scenario you require. Some common handlers could include invoking IPageDialogService to display an alert for our user and logging the event with your logging service.
 
 ```csharp
 public class ExNavigateToExtension : NavigateToExtension
